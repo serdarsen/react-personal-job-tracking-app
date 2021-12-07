@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import BootstrapTable from "react-bootstrap-table-next";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import cellEditFactory, { Type } from "react-bootstrap-table2-editor";
@@ -6,31 +6,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import "./jobTable.css";
 import { createPriorityOptions, priorities } from "./PriorityFactory";
 
-const JobTable = ({ onClickNew }) => {
-  const [jobs, setJobs] = useState([]);
-
-  useEffect(() => {
-    setJobs([
-      {
-        id: 1,
-        name: "Job 1",
-        priority: "URGENT",
-      },
-      {
-        id: 2,
-        name: "Job 2",
-        priority: "IMPORTANT",
-      },
-      {
-        id: 3,
-        name: "Job 3",
-        priority: "NORMAL",
-      },
-    ]);
-  }, []);
-
-  const deleteJob = (id) => {};
-
+const JobTable = ({ jobs, onClickNew, deleteJob }) => {
   const columnWidths = ["65%", "25%", "10%"];
 
   const columns = [
@@ -72,12 +48,12 @@ const JobTable = ({ onClickNew }) => {
       style: { width: columnWidths[2] },
       type: "string",
       editable: false,
-      formatter: (cell) => (
+      formatter: (cell, row) => (
         <div className="app__jobtable-action">
           <FaTrashAlt
             className="fa-clickable-red"
             size={24}
-            onClick={() => deleteJob(cell)}
+            onClick={() => deleteJob(row)}
             title={"Delete"}
           />
         </div>

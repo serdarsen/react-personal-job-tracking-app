@@ -1,14 +1,7 @@
 import React, { useRef } from "react";
 import "./modal.css";
 
-const Modal = ({
-  isOpen = null,
-  onReject,
-  onResolve,
-  rejectLabel = "Cancel",
-  resolveLabel = "Save",
-  children,
-}) => {
+const Modal = ({ isOpen = null, onRequestClose, children }) => {
   const appModalRef = useRef();
 
   return (
@@ -25,7 +18,7 @@ const Modal = ({
         if (e.target !== appModalRef.current) {
           return;
         }
-        onReject();
+        onRequestClose();
       }}
     >
       <div
@@ -37,25 +30,7 @@ const Modal = ({
             : ""
         }`}
       >
-        <div className="app__modal-body">{children}</div>
-        <div className="app__modal-footer">
-          <button
-            type="button"
-            className="btn btn-light"
-            onClick={onReject}
-            title={rejectLabel}
-          >
-            {rejectLabel}
-          </button>
-          <button
-            type="button"
-            className="btn btn-success app__modal-resolve"
-            onClick={onResolve}
-            title={resolveLabel}
-          >
-            {resolveLabel}
-          </button>
-        </div>
+        {children}
       </div>
     </div>
   );

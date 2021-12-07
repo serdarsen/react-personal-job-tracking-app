@@ -1,35 +1,72 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
-import JobForm from "./JobForm";
+import CreateModal from "./CreateModal";
+import DeleteModal from "./DeleteModal";
 import "./jobMainPage.css";
+import JobService from "./JobService";
 import JobTable from "./JobTable";
-import Modal from "./Modal";
 
 const JobMainPage = () => {
-  const [isOpen, setIsOpen] = useState();
+  const [isOpenCreateModal, setIsOpenCreateModal] = useState();
+  const [isOpenDeleteModal, setIsOpenDeleteModal] = useState();
+  const [jobs, setJobs] = useState([]);
+  const [jobToDelete, setJobToDelete] = useState();
 
-  const onReject = () => {
-    setIsOpen(false);
+  const onCancelCreateModal = () => {
+    setIsOpenCreateModal(false);
   };
 
-  const onResolve = () => {};
+  const onSubmitCreateModal = (job) => {
+    let lastId = JobService.findLastId();
+    job.id = lastId++;
+    jobs.push(job);
+    JobService.saveLastId(lastId);
+    JobService.saveJobs(jobs);
+
+    setJobs(jobs);
+    setIsOpenCreateModal(false);
+  };
+
+  const onCancelDeleteModal = () => {
+    setIsOpenDeleteModal(false);
+  };
+
+  const onSubmitDeleteModal = () => {
+    const tempJobs = jobs.filter((job) => jobToDelete.id !== job.id);
+    JobService.saveJobs(tempJobs);
+
+    setJobs(tempJobs);
+    setIsOpenDeleteModal(false);
+  };
 
   const onClickNew = () => {
-    setIsOpen(true);
+    setIsOpenCreateModal(true);
   };
+
+  const deleteJob = (job) => {
+    setJobToDelete(job);
+    setIsOpenDeleteModal(true);
+  };
+
+  useEffect(() => {
+    const jobs = JobService.findJobs();
+    setJobs(jobs);
+  }, []);
 
   return (
     <div className="app__jobmainpage">
-      <Modal
-        isOpen={isOpen}
-        onReject={onReject}
-        onResolve={onResolve}
-        rejectLabel="Cancel"
-        resolveLabel="Save"
-      >
-        <JobForm />
-      </Modal>
-      <JobTable onClickNew={onClickNew} />
+      <CreateModal
+        isOpen={isOpenCreateModal}
+        onCancel={onCancelCreateModal}
+        onSubmit={onSubmitCreateModal}
+      />
+      <DeleteModal
+        isOpen={isOpenDeleteModal}
+        onCancel={onCancelDeleteModal}
+        onSubmit={onSubmitDeleteModal}
+        jobToDeleteLabel={jobToDelete?.name}
+      />
+      <JobTable jobs={jobs} onClickNew={onClickNew} deleteJob={deleteJob} />
     </div>
   );
 };
