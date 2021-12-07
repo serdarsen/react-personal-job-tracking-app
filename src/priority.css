@@ -1,0 +1,14 @@
+.app__priority-urgent {
+  background-color: #d99696;
+  color: #ffffff;
+}
+
+.app__priority-important {
+  background-color: #d7b54e;
+  color: #ffffff;
+}
+
+.app__priority-normal {
+  background-color: #8da9c4;
+  color: #ffffff;
+}

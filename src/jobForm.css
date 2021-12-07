@@ -1,0 +1,14 @@
+.app__jobform {
+  display: flex;
+  flex-direction: row;
+  margin: 1rem 0rem 1rem 0rem;
+}
+
+.app__jobform-name {
+    flex: 0.7;
+}
+
+.app__jobform-priority {
+    flex: 0.3;
+    padding: 0rem 0rem 0rem 0.3rem;
+}

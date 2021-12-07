@@ -1,10 +1,10 @@
 import "./App.css";
-import JobTable from "./JobTable";
+import JobMainPage from "./JobMainPage";
 
 function App() {
   return (
-    <div>
-      <JobTable />
+    <div className="app">
+      <JobMainPage />
     </div>
   );
 }

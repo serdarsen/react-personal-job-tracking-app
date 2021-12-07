@@ -1,0 +1,39 @@
+.fa-disabled {
+  color: #808080;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.fa-disabled:hover {
+  color: #808080;
+}
+
+.fa-disabled:active {
+  color: #808080;
+}
+
+.fa-clickable-red {
+  color: #656565;
+  cursor: pointer;
+}
+
+.fa-clickable-red:hover {
+  color: #cc6565;
+}
+
+.fa-clickable-red:active {
+  color: #656565;
+}
+
+.fa-clickable-black {
+  color: #656565;
+  cursor: pointer;
+}
+
+.fa-clickable-black:hover {
+  color: #000;
+}
+
+.fa-clickable-black:active {
+  color: #656565;
+}
