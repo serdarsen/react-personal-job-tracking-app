@@ -6,7 +6,7 @@
 ## Introduction
 Personal Job Tracking App is a demo app to manage job records.
 
-### Features
+### Feature
 
 - Ability to add, order, delete, change a job record that has priority.
 - Editable, colorful rows.
