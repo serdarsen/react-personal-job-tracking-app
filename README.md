@@ -21,3 +21,4 @@ run `npm start`, browse `localhost:3000`
 - [React Icons](https://react-icons.github.io/react-icons/icons?name=fa)
 - [React Select](https://react-select.com/home)
 - [Bootstrap Table Next](https://react-bootstrap-table.github.io/react-bootstrap-table2/docs/about.html)
+- [Animista](https://animista.net/)
