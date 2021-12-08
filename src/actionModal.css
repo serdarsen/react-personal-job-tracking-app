@@ -1,9 +1,9 @@
-.app__deleteModal-content {
+.app__actionModal-content {
   font-weight: 600;
   padding: 0.3rem 0.3rem;
 }
 
-.app__deleteModal-content span {
+.app__actionModal-content span {
   display: block;
   overflow: hidden;
   white-space: nowrap;

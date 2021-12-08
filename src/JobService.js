@@ -18,7 +18,7 @@ const JobService = {
   findLastId: () => {
     const lastId = localStorage.getItem(JOBS_LOCAL_STORAGE_LAST_ID_NAME);
 
-    return parseInt(lastId ?? 0);
+    return parseInt(lastId ?? 1);
   },
 };
 

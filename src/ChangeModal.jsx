@@ -1,7 +1,7 @@
 import React from "react";
 import ActionModal from "./ActionModal";
 
-const DeleteModal = ({ isOpen, onCancel, onSubmit, text }) => {
+const ChangeModal = ({ isOpen, onCancel, onSubmit, text }) => {
   return (
     <ActionModal
       isOpen={isOpen}
@@ -12,4 +12,4 @@ const DeleteModal = ({ isOpen, onCancel, onSubmit, text }) => {
   );
 };
 
-export default DeleteModal;
+export default ChangeModal;

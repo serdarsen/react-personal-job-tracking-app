@@ -6,7 +6,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import "./jobTable.css";
 import { createPriorityOptions, priorities } from "./PriorityFactory";
 
-const JobTable = ({ jobs, onClickNew, deleteJob }) => {
+const JobTable = ({ jobs, onClickNew, deleteJob, changePriority }) => {
   const columns = [
     {
       dataField: "name",
@@ -83,14 +83,8 @@ const JobTable = ({ jobs, onClickNew, deleteJob }) => {
           cellEdit={cellEditFactory({
             mode: "click",
             blurToSave: true,
-            onStartEdit: (row, column, rowIndex, columnIndex) => {
-              console.log("start to edit!!!");
-            },
-            beforeSaveCell: (oldValue, newValue, row, column) => {
-              console.log("Before Saving Cell!!");
-            },
-            afterSaveCell: (oldValue, newValue, row, column) => {
-              console.log("After Saving Cell!!");
+            beforeSaveCell: (oldPriority, newPriority, currentJob) => {
+              changePriority({ oldPriority, newPriority, currentJob });
             },
           })}
         />
