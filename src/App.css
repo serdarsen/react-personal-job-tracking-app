@@ -1,7 +1,6 @@
-@import "./icon.css";
-@import "./animation.css";
-@import "./priority.css";
+@import "./style/icon.css";
+@import "./style/animation.css";
+@import "./style/priority.css";
 
 .app {
-  
 }

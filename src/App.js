@@ -1,5 +1,5 @@
 import "./App.css";
-import JobMainPage from "./JobMainPage";
+import JobMainPage from "./component/JobMainPage";
 
 function App() {
   return (

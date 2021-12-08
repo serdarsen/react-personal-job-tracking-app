@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import Select from "react-select";
-import Footer from "./Footer";
-import "./jobForm.css";
 import {
   createPriorityOptions,
   defaultPriorityOption,
-} from "./PriorityFactory";
+} from "../factory/PriorityFactory";
+import Footer from "./Footer";
+import "./jobForm.css";
 
 const JobForm = ({ onCancel, onSubmit }) => {
   const [name, setName] = useState("");

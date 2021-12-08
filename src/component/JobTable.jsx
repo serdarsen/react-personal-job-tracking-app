@@ -3,8 +3,8 @@ import BootstrapTable from "react-bootstrap-table-next";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import cellEditFactory, { Type } from "react-bootstrap-table2-editor";
 import { FaTrashAlt } from "react-icons/fa";
+import { createPriorityOptions, priorities } from "../factory/PriorityFactory";
 import "./jobTable.css";
-import { createPriorityOptions, priorities } from "./PriorityFactory";
 
 const JobTable = ({ jobs, onClickNew, deleteJob, changePriority }) => {
   const columns = [

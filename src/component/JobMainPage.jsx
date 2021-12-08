@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
+import { priorities } from "../factory/PriorityFactory";
+import JobService from "../service/JobService";
 import ChangeModal from "./ChangeModal";
 import CreateModal from "./CreateModal";
 import DeleteModal from "./DeleteModal";
 import "./jobMainPage.css";
-import JobService from "./JobService";
 import JobTable from "./JobTable";
-import { priorities } from "./PriorityFactory";
 
 const JobMainPage = () => {
   const [isOpenCreateModal, setIsOpenCreateModal] = useState();
