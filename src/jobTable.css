@@ -2,6 +2,37 @@
   padding: 8rem 5rem;
 }
 
+.app__jobtable-name_col_header {
+  width: 70%;
+}
+
+.app__jobtable-name_col_cell {
+  width: 70%;
+}
+
+.app__jobtable-name_col_cell span {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.app__jobtable-priority_col_header {
+  width: 20%;
+}
+
+.app__jobtable-priority_col_cell {
+  width: 20%;
+}
+
+.app__jobtable-id_col_header {
+  width: 10%;
+}
+
+.app__jobtable-id_col_cell {
+  width: 10%;
+}
+
 .app__jobtable-content {
   max-width: 700px;
   margin: 0 auto;
@@ -29,4 +60,34 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+}
+
+@media screen and (max-width: 800px) {
+  .app__jobtable {
+    padding: 8rem 1rem;
+  }
+
+  .app__jobtable-name_col_header {
+    width: auto;
+  }
+
+  .app__jobtable-name_col_cell {
+    width: auto;
+  }
+
+  .app__jobtable-priority_col_header {
+    width: auto;
+  }
+
+  .app__jobtable-priority_col_cell {
+    width: auto;
+  }
+
+  .app__jobtable-id_col_header {
+    width: auto;
+  }
+
+  .app__jobtable-id_col_cell {
+    width: auto;
+  }
 }

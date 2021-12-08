@@ -35,6 +35,7 @@ const JobForm = ({ onCancel, onSubmit }) => {
             onChange={(event) => setName(event.target.value)}
             required
             maxLength={255}
+            title={name}
           />
         </div>
         <div className="app__jobform-priority">

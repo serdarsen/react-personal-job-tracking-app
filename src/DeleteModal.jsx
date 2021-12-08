@@ -7,7 +7,7 @@ const DeleteModal = ({ isOpen, onCancel, onSubmit, jobToDeleteLabel }) => {
   return (
     <Modal isOpen={isOpen} onRequestClose={onCancel}>
       <div className="app__deleteModal-content">
-        Delete {jobToDeleteLabel} ?
+        <span>Delete {jobToDeleteLabel} ?</span>
       </div>
       <Footer
         onCancel={onCancel}

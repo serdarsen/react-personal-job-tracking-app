@@ -7,33 +7,32 @@ import "./jobTable.css";
 import { createPriorityOptions, priorities } from "./PriorityFactory";
 
 const JobTable = ({ jobs, onClickNew, deleteJob }) => {
-  const columnWidths = ["65%", "25%", "10%"];
-
   const columns = [
     {
       dataField: "name",
       text: "Name",
       sort: true,
-      headerStyle: { width: columnWidths[0] },
-      style: { width: columnWidths[0] },
       type: "string",
-      classes: (cell, row) => priorities[row.priority].classes,
+      headerClasses: "app__jobtable-name_col_header",
+      classes: (cell, row) =>
+        `${priorities[row.priority].classes} app__jobtable-name_col_cell`,
+      formatter: (cell) => <span title={cell}>{cell}</span>,
       editable: false,
     },
     {
       dataField: "priority",
       text: "Priority",
       sort: true,
-      headerStyle: { width: columnWidths[1] },
-      style: { width: columnWidths[1] },
       type: "string",
-      classes: (cell, row) => priorities[cell].classes,
+      headerClasses: "app__jobtable-priority_col_header",
+      classes: (cell, row) =>
+        `${priorities[row.priority].classes} app__jobtable-priority_col_cell`,
       formatter: (cell) => priorities[cell].label,
       editor: {
         type: Type.SELECT,
         options: createPriorityOptions(),
       },
-      sortFunc: (a, b, order, dataField, rowA, rowB) => {
+      sortFunc: (a, b, order) => {
         if (order === "asc") {
           return priorities[b].level - priorities[a].level;
         }
@@ -44,9 +43,9 @@ const JobTable = ({ jobs, onClickNew, deleteJob }) => {
       dataField: "id",
       text: "Action",
       sort: false,
-      headerStyle: { width: columnWidths[2] },
-      style: { width: columnWidths[2] },
-      type: "string",
+      type: "number",
+      headerClasses: "app__jobtable-id_col_header",
+      classes: "app__jobtable-id_col_cell",
       editable: false,
       formatter: (cell, row) => (
         <div className="app__jobtable-action">
